@@ -1,0 +1,65 @@
+Traceback (most recent call last):
+  File "/opt/hostedtoolcache/Python/3.12.5/x64/lib/python3.12/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+    executenb(
+  File "/opt/hostedtoolcache/Python/3.12.5/x64/lib/python3.12/site-packages/nbclient/client.py", line 1314, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.12.5/x64/lib/python3.12/site-packages/jupyter_core/utils/__init__.py", line 165, in wrapped
+    return loop.run_until_complete(inner)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.12.5/x64/lib/python3.12/asyncio/base_events.py", line 687, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.12.5/x64/lib/python3.12/site-packages/nbclient/client.py", line 709, in async_execute
+    await self.async_execute_cell(
+  File "/opt/hostedtoolcache/Python/3.12.5/x64/lib/python3.12/site-packages/nbclient/client.py", line 1062, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/opt/hostedtoolcache/Python/3.12.5/x64/lib/python3.12/site-packages/nbclient/client.py", line 918, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+import subprocess
+import os
+import numpy as np
+import porespy as ps
+import h5py  # if there was error importing, please install the h5py package
+import importlib
+import warnings
+import openpnm as op
+import porespy as ps
+import scipy as sp
+from matplotlib import pyplot as plt
+from sklearn.metrics import r2_score
+import time
+import tensorflow as tf
+ps.visualization.set_mpl_style()
+warnings.filterwarnings("ignore")
+------------------
+
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mImportError[0m                               Traceback (most recent call last)
+Cell [0;32mIn[1], line 12[0m
+[1;32m     10[0m [38;5;28;01mimport[39;00m [38;5;21;01mscipy[39;00m [38;5;28;01mas[39;00m [38;5;21;01msp[39;00m
+[1;32m     11[0m [38;5;28;01mfrom[39;00m [38;5;21;01mmatplotlib[39;00m [38;5;28;01mimport[39;00m pyplot [38;5;28;01mas[39;00m plt
+[0;32m---> 12[0m [38;5;28;01mfrom[39;00m [38;5;21;01msklearn[39;00m[38;5;21;01m.[39;00m[38;5;21;01mmetrics[39;00m [38;5;28;01mimport[39;00m r2_score
+[1;32m     13[0m [38;5;28;01mimport[39;00m [38;5;21;01mtime[39;00m
+[1;32m     14[0m [38;5;28;01mimport[39;00m [38;5;21;01mtensorflow[39;00m [38;5;28;01mas[39;00m [38;5;21;01mtf[39;00m
+
+File [0;32m/opt/hostedtoolcache/Python/3.12.5/x64/lib/python3.12/site-packages/sklearn/__init__.py:80[0m
+[1;32m     69[0m     sys[38;5;241m.[39mstderr[38;5;241m.[39mwrite([38;5;124m"[39m[38;5;124mPartial import of sklearn during the build process.[39m[38;5;130;01m\n[39;00m[38;5;124m"[39m)
+[1;32m     70[0m     [38;5;66;03m# We are not importing the rest of scikit-learn during the build[39;00m
+[1;32m     71[0m     [38;5;66;03m# process, as it may not be compiled yet[39;00m
+[1;32m     72[0m [38;5;28;01melse[39;00m:
+[0;32m   (...)[0m
+[1;32m     78[0m     [38;5;66;03m# later is linked to the OpenMP runtime to make it possible to introspect[39;00m
+[1;32m     79[0m     [38;5;66;03m# it and importing it first would fail if the OpenMP dll cannot be found.[39;00m
+[0;32m---> 80[0m     [38;5;28;01mfrom[39;00m [38;5;21;01m.[39;00m [38;5;28;01mimport[39;00m (
+[1;32m     81[0m         __check_build,  [38;5;66;03m# noqa: F401[39;00m
+[1;32m     82[0m         _distributor_init,  [38;5;66;03m# noqa: F401[39;00m
+[1;32m     83[0m     )
+[1;32m     84[0m     [38;5;28;01mfrom[39;00m [38;5;21;01m.[39;00m[38;5;21;01mbase[39;00m [38;5;28;01mimport[39;00m clone
+[1;32m     85[0m     [38;5;28;01mfrom[39;00m [38;5;21;01m.[39;00m[38;5;21;01mutils[39;00m[38;5;21;01m.[39;00m[38;5;21;01m_show_versions[39;00m [38;5;28;01mimport[39;00m show_versions
+
+[0;31mImportError[0m: cannot import name '__check_build' from partially initialized module 'sklearn' (most likely due to a circular import) (/opt/hostedtoolcache/Python/3.12.5/x64/lib/python3.12/site-packages/sklearn/__init__.py)
+
